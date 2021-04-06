@@ -1,8 +1,9 @@
 import constants
+import copy
 
 if __name__ == '__main__':
-    players = constants.PLAYERS
-    teams = constants.TEAMS
+    players = copy.deepcopy(constants.PLAYERS)
+    teams = copy.deepcopy(constants.TEAMS)
     panthers = []
     bandits = []
     warriors = []
@@ -20,9 +21,8 @@ if __name__ == '__main__':
                 
             height = players[i]['height'].split()
             players[i]['height'] = int(height[0])
-            
-            players[i]['guardians'] = (", ".join(players[i]['guardians'].split(" and ")))
             i += 1
+            
             
     def experience():
         i = 0
@@ -134,12 +134,12 @@ if __name__ == '__main__':
         p = 0
         team_guards = []
         while p < len(team):
-            team_guards.append(team[p]['guardians'])
+            team_guards.append(", ".join(team[p]['guardians'].split(" and ")))
             p += 1
         team_guards = (", ".join(team_guards))
         return team_guards
-        
 
+    
     clear_data()
     experience()
     balance_teams()
