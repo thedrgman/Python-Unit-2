@@ -21,6 +21,7 @@ if __name__ == '__main__':
                 
             height = players[i]['height'].split()
             players[i]['height'] = int(height[0])
+            players[i]['guardians'] = [", ".join(players[i]['guardians'].split(" and "))]
             i += 1
             
             
@@ -133,11 +134,12 @@ if __name__ == '__main__':
     def guardians(team):
         p = 0
         team_guards = []
+        guards = " "
         while p < len(team):
-            team_guards.append(", ".join(team[p]['guardians'].split(" and ")))
+            team_guards.extend(team[p]['guardians'])
             p += 1
-        team_guards = (", ".join(team_guards))
-        return team_guards
+        guards = ", ".join(team_guards)
+        return guards
 
     
     clear_data()
