@@ -21,7 +21,7 @@ if __name__ == '__main__':
                 
             height = players[i]['height'].split()
             players[i]['height'] = int(height[0])
-            players[i]['guardians'] = [", ".join(players[i]['guardians'].split(" and "))]
+            players[i]['guardians'] = players[i]['guardians'].split(" and ")
             i += 1
             
             
@@ -143,6 +143,7 @@ if __name__ == '__main__':
 
     
     clear_data()
+    print(players)
     experience()
     balance_teams()
     
