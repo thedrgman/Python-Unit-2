@@ -143,7 +143,6 @@ if __name__ == '__main__':
 
     
     clear_data()
-    print(players)
     experience()
     balance_teams()
     
